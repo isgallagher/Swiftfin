@@ -10,7 +10,10 @@ Fork the Swiftfin repo and install the necessary dependencies with Xcode 14:
 
 ```bash
 # install Carthage, SwiftFormat, and SwiftGen with homebrew
-$ brew install carthage swiftformat swiftgen
+$ brew install carthage swiftformat #swiftgen - swiftgen is disabled on brew
+
+# install swiftgen 6.6.2
+$ curl -Lo /tmp/swiftgen.rb https://raw.githubusercontent.com/iMichka/homebrew-core/17ae00b4bf1640cc544eae5f6eec03775c09420b/Formula/swiftgen.rb && brew install /tmp/swiftgen.rb && rm /tmp/swiftgen.rb
 
 # install or update dependencies
 $ carthage update --use-xcframeworks
