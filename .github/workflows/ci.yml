@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install SwiftGen
-        run: brew install swiftgen
+        run: mkdir -p /tmp && curl -Lo /tmp/swiftgen.rb https://raw.githubusercontent.com/iMichka/homebrew-core/17ae00b4bf1640cc544eae5f6eec03775c09420b/Formula/swiftgen.rb && brew install /tmp/swiftgen.rb && rm /tmp/swiftgen.rb
 
       - name: Cache Carthage
         uses: actions/cache@v4
