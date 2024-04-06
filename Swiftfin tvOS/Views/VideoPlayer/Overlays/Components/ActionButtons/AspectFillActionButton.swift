@@ -6,36 +6,39 @@
 // Copyright (c) 2024 Jellyfin & Jellyfin Contributors
 //
 
+import Defaults
 import SwiftUI
+import VLCUI
 
 extension VideoPlayer.Overlay.ActionButtons {
 
-    struct PlayPreviousItem: View {
+    struct AspectFill: View {
+
+        @Environment(\.aspectFilled)
+        @Binding
+        private var aspectFilled: Bool
 
         @EnvironmentObject
         private var overlayTimer: TimerProxy
         @EnvironmentObject
-        private var videoPlayerManager: VideoPlayerManager
+        private var videoPlayerProxy: VLCVideoPlayer.Proxy
 
-        private var content: () -> any View
+        private var content: (Bool) -> any View
 
         var body: some View {
             Button {
-                videoPlayerManager.selectPreviousViewModel()
                 overlayTimer.start(5)
+                aspectFilled.toggle()
             } label: {
-                content()
-                    .eraseToAnyView()
+                content(aspectFilled).eraseToAnyView()
             }
-            .disabled(videoPlayerManager.previousViewModel == nil)
-            .foregroundColor(videoPlayerManager.previousViewModel == nil ? .gray : .white)
         }
     }
 }
 
-extension VideoPlayer.Overlay.ActionButtons.PlayPreviousItem {
+extension VideoPlayer.Overlay.ActionButtons.AspectFill {
 
-    init(@ViewBuilder _ content: @escaping () -> any View) {
+    init(@ViewBuilder _ content: @escaping (Bool) -> any View) {
         self.content = content
     }
 }

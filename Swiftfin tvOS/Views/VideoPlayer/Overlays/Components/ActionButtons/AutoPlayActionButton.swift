@@ -19,15 +19,23 @@ extension VideoPlayer.Overlay.ActionButtons {
         @EnvironmentObject
         private var overlayTimer: TimerProxy
 
+        private var content: (Bool) -> any View
+
         var body: some View {
-            SFSymbolButton(
-                systemName: autoPlayEnabled ? "play.circle.fill" : "stop.circle"
-            )
-            .onSelect {
+            Button {
                 autoPlayEnabled.toggle()
                 overlayTimer.start(5)
+            } label: {
+                content(autoPlayEnabled)
+                    .eraseToAnyView()
             }
-            .frame(maxWidth: 30, maxHeight: 30)
         }
+    }
+}
+
+extension VideoPlayer.Overlay.ActionButtons.AutoPlay {
+
+    init(@ViewBuilder _ content: @escaping (Bool) -> any View) {
+        self.content = content
     }
 }

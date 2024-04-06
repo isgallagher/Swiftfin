@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 struct KeyCommandsPreferenceKey: PreferenceKey {
 
     static var defaultValue: [KeyCommandAction] = []
@@ -33,7 +33,8 @@ struct PrefersHomeIndicatorAutoHiddenPreferenceKey: PreferenceKey {
         value = nextValue() || value
     }
 }
-
+#endif
+#if os(iOS)
 struct SupportedOrientationsPreferenceKey: PreferenceKey {
 
     static var defaultValue: UIInterfaceOrientationMask = .allButUpsideDown

@@ -6,11 +6,15 @@
 // Copyright (c) 2024 Jellyfin & Jellyfin Contributors
 //
 
+import Defaults
 import SwiftUI
 
 extension VideoPlayer.Overlay.ActionButtons {
 
     struct Chapters: View {
+
+        @Default(.VideoPlayer.autoPlayEnabled)
+        private var autoPlayEnabled
 
         @Environment(\.currentOverlayType)
         @Binding
@@ -19,15 +23,23 @@ extension VideoPlayer.Overlay.ActionButtons {
         @EnvironmentObject
         private var overlayTimer: TimerProxy
 
+        private var content: () -> any View
+
         var body: some View {
-            SFSymbolButton(
-                systemName: "photo",
-                systemNameFocused: "photo.fill"
-            )
-            .onSelect {
+            Button {
                 currentOverlayType = .chapters
+                overlayTimer.stop()
+            } label: {
+                content()
+                    .eraseToAnyView()
             }
-            .frame(maxWidth: 30, maxHeight: 30)
         }
+    }
+}
+
+extension VideoPlayer.Overlay.ActionButtons.Chapters {
+
+    init(@ViewBuilder _ content: @escaping () -> any View) {
+        self.content = content
     }
 }

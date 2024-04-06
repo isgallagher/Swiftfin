@@ -17,13 +17,25 @@ extension VideoPlayer.Overlay.ActionButtons {
         @EnvironmentObject
         private var videoPlayerManager: VideoPlayerManager
 
+        private var content: () -> any View
+
         var body: some View {
-            SFSymbolButton(systemName: "chevron.right.circle")
-                .onSelect {
-                    videoPlayerManager.selectNextViewModel()
-                    overlayTimer.start(5)
-                }
-                .frame(maxWidth: 30, maxHeight: 30)
+            Button {
+                videoPlayerManager.selectNextViewModel()
+                overlayTimer.start(5)
+            } label: {
+                content()
+                    .eraseToAnyView()
+            }
+            .disabled(videoPlayerManager.nextViewModel == nil)
+            .foregroundColor(videoPlayerManager.nextViewModel == nil ? .gray : .white)
         }
+    }
+}
+
+extension VideoPlayer.Overlay.ActionButtons.PlayNextItem {
+
+    init(@ViewBuilder _ content: @escaping () -> any View) {
+        self.content = content
     }
 }

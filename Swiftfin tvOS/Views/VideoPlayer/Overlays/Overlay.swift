@@ -23,80 +23,54 @@ extension VideoPlayer {
         private var router: VideoPlayerCoordinator.Router
 
         @State
-        private var confirmCloseWorkItem: DispatchWorkItem?
-        @State
         private var currentOverlayType: VideoPlayer.OverlayType = .main
-
+        @State
+        private var isPlaying: Bool = true
         @StateObject
         private var overlayTimer: TimerProxy = .init()
 
-        @ViewBuilder
-        private var currentOverlay: some View {
-            switch currentOverlayType {
-            case .chapters:
-                ChapterOverlay()
-            case .confirmClose:
-                ConfirmCloseOverlay()
-            case .main:
-                MainOverlay()
-            case .smallMenu:
-                SmallMenuOverlay()
-            }
-        }
-
         var body: some View {
-            currentOverlay
-                .visible(isPresentingOverlay)
-                .animation(.linear(duration: 0.1), value: currentOverlayType)
-                .environment(\.currentOverlayType, $currentOverlayType)
-                .environmentObject(overlayTimer)
-                .onChange(of: currentOverlayType) { newValue in
-                    if [.smallMenu, .chapters].contains(newValue) {
-                        overlayTimer.pause()
-                    } else if isPresentingOverlay {
-                        overlayTimer.start(5)
-                    }
-                }
-                .onChange(of: overlayTimer.isActive) { isActive in
-                    guard !isActive else { return }
+            ZStack {
 
-                    withAnimation(.linear(duration: 0.3)) {
-                        isPresentingOverlay = false
-                    }
+                MainOverlay()
+                    .environmentObject(overlayTimer)
+                    .visible(currentOverlayType == .main)
+
+                ChapterOverlay()
+                    .environmentObject(overlayTimer)
+                    .visible(currentOverlayType == .chapters)
+            }
+            .animation(.linear(duration: 0.1), value: currentOverlayType)
+            .environment(\.currentOverlayType, $currentOverlayType)
+            .onChange(of: isPresentingOverlay) { newValue in
+                guard newValue else { return }
+                currentOverlayType = .main
+            }
+            .onPlayPauseCommand(perform: {
+                if isPlaying {
+                    proxy.pause()
+                    isPlaying = false
+                    currentOverlayType = .main
+                    isPresentingOverlay = true
+                } else {
+                    proxy.play()
+                    isPlaying = true
                 }
-//                .onSelectPressed {
-//                    currentOverlayType = .main
-//                    isPresentingOverlay = true
-//                    overlayTimer.start(5)
-//                }
-//                .onMenuPressed {
-//
-//                    overlayTimer.start(5)
-//                    confirmCloseWorkItem?.cancel()
-//
-//                    if isPresentingOverlay && currentOverlayType == .confirmClose {
-//                        proxy.stop()
-//                        router.dismissCoordinator()
-//                    } else if isPresentingOverlay && currentOverlayType == .smallMenu {
-//                        currentOverlayType = .main
-//                    } else {
-//                        withAnimation {
-//                            currentOverlayType = .confirmClose
-//                            isPresentingOverlay = true
-//                        }
-//
-//                        let task = DispatchWorkItem {
-//                            withAnimation {
-//                                isPresentingOverlay = false
-//                                overlayTimer.stop()
-//                            }
-//                        }
-//
-//                        confirmCloseWorkItem = task
-//
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: task)
-//                    }
-//                }
+            })
+            .onLongPressGesture(perform: {
+                // bring up subtitle menu and playback statistics, media/codec information
+                // this triggers on the siri 4k remote when holding the touch selector for 0.5 seconds and releasing
+            })
+            .onMoveCommand(perform: { _ in
+                // when user presses the arrow keys on remote this comes up
+                currentOverlayType = .main
+                isPresentingOverlay = true
+                overlayTimer.start(5)
+            })
+            .onExitCommand {
+                proxy.stop()
+                router.dismissCoordinator()
+            }
         }
     }
 }

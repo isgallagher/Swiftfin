@@ -50,6 +50,7 @@ extension Backport where Content: View {
         }
     }
 
+    #endif
     @ViewBuilder
     func persistentSystemOverlays(_ visibility: Visibility) -> some View {
         if #available(iOS 16, *) {
@@ -60,5 +61,4 @@ extension Backport where Content: View {
                 .prefersHomeIndicatorAutoHidden(visibility == .hidden ? true : false)
         }
     }
-    #endif
 }

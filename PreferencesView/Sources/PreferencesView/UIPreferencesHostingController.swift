@@ -14,19 +14,21 @@ public class UIPreferencesHostingController: UIHostingController<AnyView> {
         let box = Box()
         let rootView = AnyView(
             content()
-            #if os(iOS)
+            #if os(iOS) || os(tvOS)
                 .onPreferenceChange(KeyCommandsPreferenceKey.self) {
                     box.value?._keyCommandActions = $0
                 }
-                .onPreferenceChange(PrefersHomeIndicatorAutoHiddenPreferenceKey.self) {
-                    box.value?._prefersHomeIndicatorAutoHidden = $0
-                }
-                .onPreferenceChange(PreferredScreenEdgesDeferringSystemGesturesPreferenceKey.self) {
-                    box.value?._preferredScreenEdgesDeferringSystemGestures = $0
-                }
-                .onPreferenceChange(SupportedOrientationsPreferenceKey.self) {
-                    box.value?._orientations = $0
-                }
+            #endif
+            #if os(iOS)
+            .onPreferenceChange(PrefersHomeIndicatorAutoHiddenPreferenceKey.self) {
+                box.value?._prefersHomeIndicatorAutoHidden = $0
+            }
+            .onPreferenceChange(PreferredScreenEdgesDeferringSystemGesturesPreferenceKey.self) {
+                box.value?._preferredScreenEdgesDeferringSystemGestures = $0
+            }
+            .onPreferenceChange(SupportedOrientationsPreferenceKey.self) {
+                box.value?._orientations = $0
+            }
             #endif
         )
 
@@ -40,7 +42,7 @@ public class UIPreferencesHostingController: UIHostingController<AnyView> {
         fatalError("init(coder:) has not been implemented")
     }
 
-    #if os(iOS)
+    #if os(iOS) || os(tvOS)
 
     // MARK: Key Commands
 
@@ -48,12 +50,12 @@ public class UIPreferencesHostingController: UIHostingController<AnyView> {
         willSet {
             _keyCommands = newValue.map { action in
                 let keyCommand = UIKeyCommand(
-                    title: action.title,
-                    action: #selector(keyCommandHit),
                     input: String(action.input),
-                    modifierFlags: action.modifierFlags
+                    modifierFlags: action.modifierFlags,
+                    action: #selector(keyCommandHit)
                 )
 
+                keyCommand.discoverabilityTitle = action.title
                 keyCommand.subtitle = action.subtitle
                 keyCommand.wantsPriorityOverSystemBehavior = true
 
@@ -74,6 +76,8 @@ public class UIPreferencesHostingController: UIHostingController<AnyView> {
             .first(where: { $0.input == keyCommand.input && $0.modifierFlags == keyCommand.modifierFlags }) else { return }
         action.action()
     }
+    #endif
+    #if os(iOS)
 
     // MARK: Orientation
 

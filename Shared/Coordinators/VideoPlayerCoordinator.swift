@@ -28,7 +28,7 @@ final class VideoPlayerCoordinator: NavigationCoordinatable {
 
     @ViewBuilder
     func makeStart() -> some View {
-        #if os(iOS)
+        #if os(iOS) || os(tvOS)
 
         // Some settings have to apply to the root PreferencesView and this
         // one - separately.
@@ -44,22 +44,17 @@ final class VideoPlayerCoordinator: NavigationCoordinatable {
                 }
             }
             .preferredColorScheme(.dark)
-            .supportedOrientations(UIDevice.isPhone ? .landscape : .allButUpsideDown)
+            #if os(iOS)
+                .supportedOrientations(UIDevice.isPhone ? .landscape : .allButUpsideDown)
+            #endif
         }
         .ignoresSafeArea()
         .backport
         .persistentSystemOverlays(.hidden)
-        .backport
-        .defersSystemGestures(on: .all)
-
-        #else
-        if Defaults[.VideoPlayer.videoPlayerType] == .swiftfin {
-            PreferencesView {
-                VideoPlayer(manager: self.videoPlayerManager)
-            }
-        } else {
-            NativeVideoPlayer(manager: self.videoPlayerManager)
-        }
+        #if os(iOS)
+            .backport
+            .defersSystemGestures(on: .all)
+        #endif
         #endif
     }
 }

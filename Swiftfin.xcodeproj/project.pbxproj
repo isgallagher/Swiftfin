@@ -144,6 +144,22 @@
 		62ECA01826FA685A00E8EBB7 /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62ECA01726FA685A00E8EBB7 /* DeepLink.swift */; };
 		6334175B287DDFB9000603CE /* QuickConnectSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6334175A287DDFB9000603CE /* QuickConnectSettingsView.swift */; };
 		6334175D287DE0D0000603CE /* QuickConnectSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6334175C287DE0D0000603CE /* QuickConnectSettingsViewModel.swift */; };
+		95356FA72BBFACFC008137B7 /* PlaybackSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FA62BBFACFC008137B7 /* PlaybackSettingsView.swift */; };
+		95356FA92BBFAE75008137B7 /* SplitContentViewProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FA82BBFAE75008137B7 /* SplitContentViewProxy.swift */; };
+		95356FAB2BBFAF98008137B7 /* UpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FAA2BBFAF98008137B7 /* UpdateView.swift */; };
+		95356FAD2BBFB033008137B7 /* AdvancedActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FAC2BBFB033008137B7 /* AdvancedActionButton.swift */; };
+		95356FAF2BBFB068008137B7 /* AspectFillActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FAE2BBFB068008137B7 /* AspectFillActionButton.swift */; };
+		95356FB12BBFB086008137B7 /* AudioActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FB02BBFB086008137B7 /* AudioActionButton.swift */; };
+		95356FB32BBFB1AD008137B7 /* PlaybackSpeedActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FB22BBFB1AD008137B7 /* PlaybackSpeedActionButton.swift */; };
+		95356FB52BBFB228008137B7 /* OverlayMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FB42BBFB228008137B7 /* OverlayMenu.swift */; };
+		95356FB72BBFB3AF008137B7 /* SubtitleActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FB62BBFB3AF008137B7 /* SubtitleActionButton.swift */; };
+		95356FB92BBFB47C008137B7 /* GestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FB82BBFB47C008137B7 /* GestureView.swift */; };
+		95356FBB2BBFB51A008137B7 /* VideoPlayer+KeyCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FBA2BBFB51A008137B7 /* VideoPlayer+KeyCommands.swift */; };
+		95356FBD2BBFB543008137B7 /* VideoPlayer+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FBC2BBFB543008137B7 /* VideoPlayer+Actions.swift */; };
+		95356FBF2BBFBA14008137B7 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FBE2BBFBA14008137B7 /* TopBarView.swift */; };
+		95356FC12BBFBA4C008137B7 /* ScalingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FC02BBFBA4C008137B7 /* ScalingButtonStyle.swift */; };
+		95356FC42BBFBB32008137B7 /* LargePlaybackButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FC32BBFBB32008137B7 /* LargePlaybackButtons.swift */; };
+		95356FC62BBFBB45008137B7 /* SmallPlaybackButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95356FC52BBFBB45008137B7 /* SmallPlaybackButtons.swift */; };
 		AE8C3159265D6F90008AA076 /* bitrates.json in Resources */ = {isa = PBXBuildFile; fileRef = AE8C3158265D6F90008AA076 /* bitrates.json */; };
 		BD0BA22B2AD6503B00306A8D /* OnlineVideoPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0BA22A2AD6503B00306A8D /* OnlineVideoPlayerManager.swift */; };
 		BD0BA22C2AD6503B00306A8D /* OnlineVideoPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0BA22A2AD6503B00306A8D /* OnlineVideoPlayerManager.swift */; };
@@ -927,6 +943,22 @@
 		6334175A287DDFB9000603CE /* QuickConnectSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickConnectSettingsView.swift; sourceTree = "<group>"; };
 		6334175C287DE0D0000603CE /* QuickConnectSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickConnectSettingsViewModel.swift; sourceTree = "<group>"; };
 		637FCAF3287B5B2600C0A353 /* UDPBroadcast.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = UDPBroadcast.xcframework; path = Carthage/Build/UDPBroadcast.xcframework; sourceTree = "<group>"; };
+		95356FA62BBFACFC008137B7 /* PlaybackSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackSettingsView.swift; sourceTree = "<group>"; };
+		95356FA82BBFAE75008137B7 /* SplitContentViewProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitContentViewProxy.swift; sourceTree = "<group>"; };
+		95356FAA2BBFAF98008137B7 /* UpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateView.swift; sourceTree = "<group>"; };
+		95356FAC2BBFB033008137B7 /* AdvancedActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedActionButton.swift; sourceTree = "<group>"; };
+		95356FAE2BBFB068008137B7 /* AspectFillActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectFillActionButton.swift; sourceTree = "<group>"; };
+		95356FB02BBFB086008137B7 /* AudioActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioActionButton.swift; sourceTree = "<group>"; };
+		95356FB22BBFB1AD008137B7 /* PlaybackSpeedActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackSpeedActionButton.swift; sourceTree = "<group>"; };
+		95356FB42BBFB228008137B7 /* OverlayMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayMenu.swift; sourceTree = "<group>"; };
+		95356FB62BBFB3AF008137B7 /* SubtitleActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleActionButton.swift; sourceTree = "<group>"; };
+		95356FB82BBFB47C008137B7 /* GestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureView.swift; sourceTree = "<group>"; };
+		95356FBA2BBFB51A008137B7 /* VideoPlayer+KeyCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoPlayer+KeyCommands.swift"; sourceTree = "<group>"; };
+		95356FBC2BBFB543008137B7 /* VideoPlayer+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoPlayer+Actions.swift"; sourceTree = "<group>"; };
+		95356FBE2BBFBA14008137B7 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		95356FC02BBFBA4C008137B7 /* ScalingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalingButtonStyle.swift; sourceTree = "<group>"; };
+		95356FC32BBFBB32008137B7 /* LargePlaybackButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargePlaybackButtons.swift; sourceTree = "<group>"; };
+		95356FC52BBFBB45008137B7 /* SmallPlaybackButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPlaybackButtons.swift; sourceTree = "<group>"; };
 		AE8C3158265D6F90008AA076 /* bitrates.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bitrates.json; sourceTree = "<group>"; };
 		BD0BA22A2AD6503B00306A8D /* OnlineVideoPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineVideoPlayerManager.swift; sourceTree = "<group>"; };
 		BD0BA22D2AD6508C00306A8D /* DownloadVideoPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadVideoPlayerManager.swift; sourceTree = "<group>"; };
@@ -1454,6 +1486,8 @@
 				E18A17F3298C68BF00C22F62 /* Overlays */,
 				E1575EA5293E7D40001665B1 /* VideoPlayer.swift */,
 				E1D9F474296E86D400129AF3 /* NativeVideoPlayer.swift */,
+				95356FBA2BBFB51A008137B7 /* VideoPlayer+KeyCommands.swift */,
+				95356FBC2BBFB543008137B7 /* VideoPlayer+Actions.swift */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -1620,6 +1654,9 @@
 				E12E30F0296383810022FAC9 /* SplitFormWindowView.swift */,
 				E187A60429AD2E25008387E6 /* StepperView.swift */,
 				E1CCC3D128C858A50020ED54 /* UserProfileButton.swift */,
+				95356FA82BBFAE75008137B7 /* SplitContentViewProxy.swift */,
+				95356FAA2BBFAF98008137B7 /* UpdateView.swift */,
+				95356FB82BBFB47C008137B7 /* GestureView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1950,6 +1987,15 @@
 			path = AppURLHandler;
 			sourceTree = "<group>";
 		};
+		95356FC22BBFBB28008137B7 /* PlaybackButtons */ = {
+			isa = PBXGroup;
+			children = (
+				95356FC32BBFBB32008137B7 /* LargePlaybackButtons.swift */,
+				95356FC52BBFBB45008137B7 /* SmallPlaybackButtons.swift */,
+			);
+			path = PlaybackButtons;
+			sourceTree = "<group>";
+		};
 		AE8C3157265D6F5E008AA076 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1985,6 +2031,7 @@
 			isa = PBXGroup;
 			children = (
 				E10E842929A587110064EA49 /* LoadingView.swift */,
+				95356FA62BBFACFC008137B7 /* PlaybackSettingsView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -2373,6 +2420,7 @@
 			isa = PBXGroup;
 			children = (
 				E185920928CEF23A00326F80 /* FocusGuide.swift */,
+				95356FC02BBFBA4C008137B7 /* ScalingButtonStyle.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -2402,10 +2450,13 @@
 		E18A17F4298C6A7300C22F62 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				95356FC22BBFBB28008137B7 /* PlaybackButtons */,
 				E1E6C44329AECCD80064123F /* ActionButtons */,
 				E1E6C43A29AECBD30064123F /* BottomBarView.swift */,
 				E1E6C43C29AECC310064123F /* BarActionButtons.swift */,
 				E178859C2780F5300094FBCF /* tvOSSLider */,
+				95356FB42BBFB228008137B7 /* OverlayMenu.swift */,
+				95356FBE2BBFBA14008137B7 /* TopBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -2882,6 +2933,11 @@
 				E1E6C45229B1304E0064123F /* ChaptersActionButton.swift */,
 				E1E6C44429AECCF20064123F /* PlayNextItemActionButton.swift */,
 				E1E6C44629AECD5D0064123F /* PlayPreviousItemActionButton.swift */,
+				95356FAC2BBFB033008137B7 /* AdvancedActionButton.swift */,
+				95356FAE2BBFB068008137B7 /* AspectFillActionButton.swift */,
+				95356FB02BBFB086008137B7 /* AudioActionButton.swift */,
+				95356FB22BBFB1AD008137B7 /* PlaybackSpeedActionButton.swift */,
+				95356FB62BBFB3AF008137B7 /* SubtitleActionButton.swift */,
 			);
 			path = ActionButtons;
 			sourceTree = "<group>";
@@ -3287,6 +3343,7 @@
 				53ABFDE9267974EF00886593 /* HomeViewModel.swift in Sources */,
 				E1575E99293E7B1E001665B1 /* UIColor.swift in Sources */,
 				E1575E92293E7B1E001665B1 /* CGSize.swift in Sources */,
+				95356FC62BBFBB45008137B7 /* SmallPlaybackButtons.swift in Sources */,
 				E11E376D293E9CC1009EF240 /* VideoPlayerCoordinator.swift in Sources */,
 				E1575E6F293E77B5001665B1 /* GestureAction.swift in Sources */,
 				E18A8E7E28D606BE00333B9A /* BaseItemDto+VideoPlayerViewModel.swift in Sources */,
@@ -3296,11 +3353,14 @@
 				531690E7267ABD79005D8AB9 /* HomeView.swift in Sources */,
 				E104DC972B9E7E29008F506D /* AssertionFailureView.swift in Sources */,
 				E1E1643E28BB074000323B0A /* SelectorView.swift in Sources */,
+				95356FAF2BBFB068008137B7 /* AspectFillActionButton.swift in Sources */,
 				E1A1529128FD23D600600579 /* PlaybackSettingsCoordinator.swift in Sources */,
 				E187A60529AD2E25008387E6 /* StepperView.swift in Sources */,
 				E1575E71293E77B5001665B1 /* RepeatingTimer.swift in Sources */,
 				E1D4BF8B2719D3D000A11E64 /* BasicAppSettingsCoordinator.swift in Sources */,
+				95356FBF2BBFBA14008137B7 /* TopBarView.swift in Sources */,
 				E13DD3FA2717E961009D4DAF /* UserListViewModel.swift in Sources */,
+				95356FC12BBFBA4C008137B7 /* ScalingButtonStyle.swift in Sources */,
 				C40CD926271F8D1E000FB198 /* ItemTypeLibraryViewModel.swift in Sources */,
 				E1575E63293E77B5001665B1 /* CaseIterablePicker.swift in Sources */,
 				E1FCD09726C47118007C8DCF /* ErrorMessage.swift in Sources */,
@@ -3325,6 +3385,7 @@
 				E1BA6FC529D25DBD007D98DC /* LandscapeItemElement.swift in Sources */,
 				E185920628CDAA6400326F80 /* CastAndCrewHStack.swift in Sources */,
 				E1A42E4F28CBD3E100A14DCB /* HomeErrorView.swift in Sources */,
+				95356FB92BBFB47C008137B7 /* GestureView.swift in Sources */,
 				53CD2A40268A49C2002ABD4E /* ItemView.swift in Sources */,
 				E122A9142788EAAD0060FA63 /* MediaStream.swift in Sources */,
 				E1575E74293E77B5001665B1 /* PanDirectionGestureRecognizer.swift in Sources */,
@@ -3334,6 +3395,7 @@
 				E172D3AE2BAC9DF8007B4647 /* SeasonItemViewModel.swift in Sources */,
 				E11E374D293E7EC9009EF240 /* ItemFields.swift in Sources */,
 				E1575E6E293E77B5001665B1 /* SpecialFeatureType.swift in Sources */,
+				95356FBD2BBFB543008137B7 /* VideoPlayer+Actions.swift in Sources */,
 				E12CC1C528D12D9B00678D5D /* SeeAllPosterButton.swift in Sources */,
 				E18A8E8128D6083700333B9A /* MediaSourceInfo+ItemVideoPlayerViewModel.swift in Sources */,
 				E1002B652793CEE800E47059 /* ChapterInfo.swift in Sources */,
@@ -3343,10 +3405,12 @@
 				E1CAF6602BA345830087D991 /* MediaViewModel.swift in Sources */,
 				E111D8FA28D0400900400001 /* PagingLibraryView.swift in Sources */,
 				E1EA9F6B28F8A79E00BEC442 /* VideoPlayerManager.swift in Sources */,
+				95356FBB2BBFB51A008137B7 /* VideoPlayer+KeyCommands.swift in Sources */,
 				BD0BA22F2AD6508C00306A8D /* DownloadVideoPlayerManager.swift in Sources */,
 				E1FCD08926C35A0D007C8DCF /* NetworkError.swift in Sources */,
 				E1549661296CA2EF00C4EF88 /* SwiftfinDefaults.swift in Sources */,
 				E158C8D12A31947500C527C5 /* MediaSourceInfoView.swift in Sources */,
+				95356FB72BBFB3AF008137B7 /* SubtitleActionButton.swift in Sources */,
 				E11BDF782B8513B40045C54A /* ItemGenre.swift in Sources */,
 				E1575E98293E7B1E001665B1 /* UIApplication.swift in Sources */,
 				E12376B12A33DB33001F5B44 /* MediaSourceInfoCoordinator.swift in Sources */,
@@ -3354,6 +3418,7 @@
 				E13DD3ED27178A54009D4DAF /* UserSignInViewModel.swift in Sources */,
 				E1C9261C288756BD002A7A66 /* PosterHStack.swift in Sources */,
 				E1722DB229491C3900CC0239 /* ImageBlurHashes.swift in Sources */,
+				95356FB52BBFB228008137B7 /* OverlayMenu.swift in Sources */,
 				E12E30F329638B140022FAC9 /* ChevronButton.swift in Sources */,
 				C4BE078E27298818003F4AD1 /* LiveTVHomeView.swift in Sources */,
 				E12CC1BC28D11E1000678D5D /* RecentlyAddedViewModel.swift in Sources */,
@@ -3388,6 +3453,7 @@
 				E1575E6B293E77B5001665B1 /* Displayable.swift in Sources */,
 				E1E2F8462B757E3400B75998 /* AfterLastDisappearModifier.swift in Sources */,
 				E1575E80293E77CF001665B1 /* VideoPlayerViewModel.swift in Sources */,
+				95356FAD2BBFB033008137B7 /* AdvancedActionButton.swift in Sources */,
 				E1C926122887565C002A7A66 /* SeriesItemContentView.swift in Sources */,
 				E193D53727193F8700900D82 /* MediaCoordinator.swift in Sources */,
 				E12CC1CB28D1333400678D5D /* CinematicResumeItemView.swift in Sources */,
@@ -3430,6 +3496,7 @@
 				E1A42E4A28CA6CCD00A14DCB /* CinematicItemSelector.swift in Sources */,
 				E1D37F492B9C648E00343D2B /* MaxHeightText.swift in Sources */,
 				E154677A289AF48200087E35 /* CollectionItemContentView.swift in Sources */,
+				95356FAB2BBFAF98008137B7 /* UpdateView.swift in Sources */,
 				E1DABAFC2A270EE7008AC34A /* MediaSourcesCard.swift in Sources */,
 				E193D53D27193F9700900D82 /* UserSignInCoordinator.swift in Sources */,
 				E14EDEC62B8FB64E000F00A4 /* AnyItemFilter.swift in Sources */,
@@ -3474,6 +3541,7 @@
 				E1E1E24E28DF8A2E000DF5FD /* PreferenceKeys.swift in Sources */,
 				E1575E9B293E7B1E001665B1 /* EnvironmentValue+Keys.swift in Sources */,
 				E133328929538D8D00EE76AB /* Files.swift in Sources */,
+				95356FA72BBFACFC008137B7 /* PlaybackSettingsView.swift in Sources */,
 				E154967A296CB4B000C4EF88 /* VideoPlayerSettingsView.swift in Sources */,
 				E1575EA0293E7B1E001665B1 /* CGPoint.swift in Sources */,
 				E1C926132887565C002A7A66 /* EpisodeSelector.swift in Sources */,
@@ -3484,6 +3552,7 @@
 				E12CC1AF28D0FAEA00678D5D /* NextUpLibraryViewModel.swift in Sources */,
 				E1575E7A293E77B5001665B1 /* TimeStampType.swift in Sources */,
 				E11E374E293E7F08009EF240 /* MediaSourceInfo.swift in Sources */,
+				95356FA92BBFAE75008137B7 /* SplitContentViewProxy.swift in Sources */,
 				E1E1643A28BAC2EF00323B0A /* SearchView.swift in Sources */,
 				E1388A43293F0AAD009721B1 /* PreferenceUIHostingController.swift in Sources */,
 				E12CC1C728D12FD600678D5D /* CinematicRecentlyAddedView.swift in Sources */,
@@ -3491,6 +3560,7 @@
 				E11BDF982B865F550045C54A /* ItemTag.swift in Sources */,
 				E1DC9848296DEFF500982F06 /* FavoriteIndicator.swift in Sources */,
 				E193D53C27193F9500900D82 /* UserListCoordinator.swift in Sources */,
+				95356FB12BBFB086008137B7 /* AudioActionButton.swift in Sources */,
 				E1CEFBF727914E6400F60429 /* CustomizeViewsSettings.swift in Sources */,
 				E154967C296CBB1A00C4EF88 /* FontPickerView.swift in Sources */,
 				E193D53A27193F9000900D82 /* ServerListCoordinator.swift in Sources */,
@@ -3516,6 +3586,7 @@
 				E1153D962BBA3E2F00424D36 /* EpisodeHStack.swift in Sources */,
 				E193D5512719432400900D82 /* ServerDetailViewModel.swift in Sources */,
 				E1B5861329E32EEF00E45D6E /* Sequence.swift in Sources */,
+				95356FC42BBFBB32008137B7 /* LargePlaybackButtons.swift in Sources */,
 				C4E5081B2703F82A0045C9AB /* MediaView.swift in Sources */,
 				E193D53B27193F9200900D82 /* SettingsCoordinator.swift in Sources */,
 				E113133B28BEB71D00930F75 /* FilterViewModel.swift in Sources */,
@@ -3551,6 +3622,7 @@
 				E1A16C9D2889AF1E00EA4679 /* AboutView.swift in Sources */,
 				C4BE077A2726EE82003F4AD1 /* LiveTVTabCoordinator.swift in Sources */,
 				E193D553271943D500900D82 /* tvOSMainTabCoordinator.swift in Sources */,
+				95356FB32BBFB1AD008137B7 /* PlaybackSpeedActionButton.swift in Sources */,
 				4E8B34EB2AB91B6E0018F305 /* ItemFilter.swift in Sources */,
 				E174121029AE9D94003EF3B5 /* NavigationCoordinatable.swift in Sources */,
 				E14EDECD2B8FB709000F00A4 /* ItemYear.swift in Sources */,
@@ -4083,7 +4155,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 15.0;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
 			};
 			name = Debug;
 		};
@@ -4112,7 +4184,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 15.0;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
 			};
 			name = Release;
 		};

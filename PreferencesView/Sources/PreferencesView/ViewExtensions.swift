@@ -10,7 +10,7 @@ import SwiftUI
 
 public extension View {
 
-    #if os(iOS)
+    #if os(iOS) || os(tvOS)
     func keyCommands(@KeyCommandsBuilder _ commands: @escaping () -> [KeyCommandAction]) -> some View {
         preference(key: KeyCommandsPreferenceKey.self, value: commands())
     }
@@ -22,7 +22,8 @@ public extension View {
     func prefersHomeIndicatorAutoHidden(_ hidden: Bool) -> some View {
         preference(key: PrefersHomeIndicatorAutoHiddenPreferenceKey.self, value: hidden)
     }
-
+    #endif
+    #if os(iOS)
     func supportedOrientations(_ supportedOrientations: UIInterfaceOrientationMask) -> some View {
         preference(key: SupportedOrientationsPreferenceKey.self, value: supportedOrientations)
     }

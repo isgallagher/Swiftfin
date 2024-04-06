@@ -10,30 +10,31 @@ import SwiftUI
 
 extension VideoPlayer.Overlay.ActionButtons {
 
-    struct PlayPreviousItem: View {
+    struct Advanced: View {
+
+        @Environment(\.aspectFilled)
+        @Binding
+        private var aspectFilled: Bool
 
         @EnvironmentObject
         private var overlayTimer: TimerProxy
         @EnvironmentObject
-        private var videoPlayerManager: VideoPlayerManager
+        private var splitViewProxy: SplitContentViewProxy
 
         private var content: () -> any View
 
         var body: some View {
             Button {
-                videoPlayerManager.selectPreviousViewModel()
                 overlayTimer.start(5)
+                splitViewProxy.present()
             } label: {
-                content()
-                    .eraseToAnyView()
+                content().eraseToAnyView()
             }
-            .disabled(videoPlayerManager.previousViewModel == nil)
-            .foregroundColor(videoPlayerManager.previousViewModel == nil ? .gray : .white)
         }
     }
 }
 
-extension VideoPlayer.Overlay.ActionButtons.PlayPreviousItem {
+extension VideoPlayer.Overlay.ActionButtons.Advanced {
 
     init(@ViewBuilder _ content: @escaping () -> any View) {
         self.content = content

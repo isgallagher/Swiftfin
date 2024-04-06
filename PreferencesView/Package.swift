@@ -6,7 +6,7 @@ let package = Package(
     name: "PreferencesView",
     platforms: [
         .iOS(.v15),
-        .tvOS(.v15),
+        .tvOS(.v17),
     ],
     products: [
         .library(
