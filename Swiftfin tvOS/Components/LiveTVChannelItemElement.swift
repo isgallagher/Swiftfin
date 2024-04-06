@@ -148,9 +148,9 @@ struct LiveTVChannelItemElement: View {
         .scaleEffect(isFocused ? 1.1 : 1)
         .focusable(true)
         .focused($focused)
-        .onChange(of: focused) { foc in
+        .onChange(of: focused) {
             withAnimation(.linear(duration: 0.15)) {
-                self.isFocused = foc
+                self.isFocused = focused
             }
         }
         .onLongPressGesture(minimumDuration: 0.01, pressing: { _ in }) {

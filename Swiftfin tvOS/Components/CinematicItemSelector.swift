@@ -82,9 +82,9 @@ struct CinematicItemSelector<Item: Poster>: View {
         }
         .frame(height: UIScreen.main.bounds.height - 75)
         .frame(maxWidth: .infinity)
-        .onChange(of: focusedItem) { newValue in
-            guard let newValue else { return }
-            viewModel.select(item: newValue)
+        .onChange(of: focusedItem) {
+            guard let focusedItem else { return }
+            viewModel.select(item: focusedItem)
         }
         .onAppear {
             focusedItem = items.first

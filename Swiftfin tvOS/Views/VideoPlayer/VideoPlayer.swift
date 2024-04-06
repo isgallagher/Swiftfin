@@ -170,10 +170,13 @@ struct VideoPlayer: View {
                 .environment(\.audioOffset, $audioOffset)
                 .environment(\.subtitleOffset, $subtitleOffset)
             }
-            .onChange(of: videoPlayerManager.currentProgressHandler.scrubbedProgress) { newValue in
+            .onChange(of: videoPlayerManager.currentProgressHandler.scrubbedProgress) {
                 DispatchQueue.main.async {
                     videoPlayerManager.currentProgressHandler
-                        .scrubbedSeconds = Int(CGFloat(videoPlayerManager.currentViewModel.item.runTimeSeconds) * newValue)
+                        .scrubbedSeconds = Int(
+                            CGFloat(videoPlayerManager.currentViewModel.item.runTimeSeconds) * videoPlayerManager
+                                .currentProgressHandler.scrubbedProgress
+                        )
                 }
             }
             .overlay(alignment: .top) {
@@ -206,41 +209,41 @@ struct VideoPlayer: View {
         }
         .navigationBarHidden(true)
         .ignoresSafeArea()
-        .onChange(of: audioOffset) { newValue in
-            videoPlayerManager.proxy.setAudioDelay(.ticks(newValue))
+        .onChange(of: audioOffset) {
+            videoPlayerManager.proxy.setAudioDelay(.ticks(audioOffset))
         }
-        .onChange(of: isAspectFilled) { newValue in
+        .onChange(of: isAspectFilled) {
             UIView.animate(withDuration: 0.2) {
-                videoPlayerManager.proxy.aspectFill(newValue ? 1 : 0)
+                videoPlayerManager.proxy.aspectFill(isAspectFilled ? 1 : 0)
             }
         }
-        .onChange(of: isGestureLocked) { newValue in
-            if newValue {
+        .onChange(of: isGestureLocked) {
+            if isGestureLocked {
                 updateViewProxy.present(systemName: "lock.fill", title: "Gestures Locked")
             } else {
                 updateViewProxy.present(systemName: "lock.open.fill", title: "Gestures Unlocked")
             }
         }
-        .onChange(of: isScrubbing) { newValue in
-            guard !newValue else { return }
+        .onChange(of: isScrubbing) {
+            guard !isScrubbing else { return }
             videoPlayerManager.proxy.setTime(.seconds(currentProgressHandler.scrubbedSeconds))
         }
-        .onChange(of: subtitleColor) { newValue in
-            videoPlayerManager.proxy.setSubtitleColor(.absolute(newValue.uiColor))
+        .onChange(of: subtitleColor) {
+            videoPlayerManager.proxy.setSubtitleColor(.absolute(subtitleColor.uiColor))
         }
-        .onChange(of: subtitleFontName) { newValue in
-            videoPlayerManager.proxy.setSubtitleFont(newValue)
+        .onChange(of: subtitleFontName) {
+            videoPlayerManager.proxy.setSubtitleFont(subtitleFontName)
         }
-        .onChange(of: subtitleOffset) { newValue in
-            videoPlayerManager.proxy.setSubtitleDelay(.ticks(newValue))
+        .onChange(of: subtitleOffset) {
+            videoPlayerManager.proxy.setSubtitleDelay(.ticks(subtitleOffset))
         }
-        .onChange(of: subtitleSize) { newValue in
-            videoPlayerManager.proxy.setSubtitleSize(.absolute(24 - newValue))
+        .onChange(of: subtitleSize) {
+            videoPlayerManager.proxy.setSubtitleSize(.absolute(24 - subtitleSize))
         }
-        .onChange(of: videoPlayerManager.currentViewModel) { newViewModel in
-            guard let newViewModel else { return }
+        .onChange(of: videoPlayerManager.currentViewModel) {
+            guard let currentViewModel = videoPlayerManager.currentViewModel else { return }
 
-            videoPlayerManager.proxy.playNewMedia(newViewModel.vlcVideoPlayerConfiguration)
+            videoPlayerManager.proxy.playNewMedia(currentViewModel.vlcVideoPlayerConfiguration)
 
             isAspectFilled = false
             audioOffset = 0

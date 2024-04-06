@@ -146,8 +146,8 @@ extension EpisodeItemView.ContentView {
                 }
             }
             .padding(.horizontal, 50)
-            .onChange(of: focusedLayer) { layer in
-                if layer == .top {
+            .onChange(of: focusedLayer) {
+                if focusedLayer == .top {
                     focusedLayer = .playButton
                 }
             }

@@ -191,15 +191,15 @@ struct PagingLibraryView<Element: Poster>: View {
                 viewModel.send(.refresh)
             }
         }
-        .onChange(of: focusedItem) { newValue in
-            guard let newValue else {
+        .onChange(of: focusedItem) {
+            guard let focusedItem else {
                 withAnimation {
                     presentBackground = false
                 }
                 return
             }
 
-            cinematicBackgroundViewModel.select(item: newValue)
+            cinematicBackgroundViewModel.select(item: focusedItem)
 
             if !presentBackground {
                 withAnimation {

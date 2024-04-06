@@ -42,8 +42,8 @@ extension VideoPlayer {
             }
             .animation(.linear(duration: 0.1), value: currentOverlayType)
             .environment(\.currentOverlayType, $currentOverlayType)
-            .onChange(of: isPresentingOverlay) { newValue in
-                guard newValue else { return }
+            .onChange(of: isPresentingOverlay) {
+                guard isPresentingOverlay else { return }
                 currentOverlayType = .main
             }
             .onPlayPauseCommand(perform: {
@@ -60,6 +60,9 @@ extension VideoPlayer {
             .onLongPressGesture(perform: {
                 // bring up subtitle menu and playback statistics, media/codec information
                 // this triggers on the siri 4k remote when holding the touch selector for 0.5 seconds and releasing
+                currentOverlayType = .main
+                isPresentingOverlay = true
+                overlayTimer.start(5)
             })
             .onMoveCommand(perform: { _ in
                 // when user presses the arrow keys on remote this comes up

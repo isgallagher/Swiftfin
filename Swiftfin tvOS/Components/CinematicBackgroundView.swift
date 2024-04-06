@@ -24,9 +24,9 @@ struct CinematicBackgroundView<Item: Poster>: View {
 
     var body: some View {
         RotateContentView(proxy: proxy)
-            .onChange(of: viewModel.currentItem) { newItem in
+            .onChange(of: viewModel.currentItem) {
                 proxy.update {
-                    ImageView(newItem?.cinematicPosterImageSources() ?? [])
+                    ImageView(viewModel.currentItem?.cinematicPosterImageSources() ?? [])
                         .placeholder {
                             Color.clear
                         }

@@ -109,8 +109,8 @@ struct SearchView: View {
         .onFirstAppear {
             viewModel.send(.getSuggestions)
         }
-        .onChange(of: searchQuery) { newValue in
-            viewModel.send(.search(query: newValue))
+        .onChange(of: searchQuery) {
+            viewModel.send(.search(query: searchQuery))
         }
         .searchable(text: $searchQuery, prompt: L10n.search)
     }

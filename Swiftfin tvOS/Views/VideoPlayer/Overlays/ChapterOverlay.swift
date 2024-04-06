@@ -93,8 +93,8 @@ extension VideoPlayer {
                         .padding2()
                         .padding2(.horizontal)
                     }
-                    .onChange(of: currentOverlayType) { newValue in
-                        guard newValue == .chapters else { return }
+                    .onChange(of: currentOverlayType) {
+                        guard currentOverlayType == .chapters else { return }
                         if let currentChapter = viewModel.chapter(from: currentProgressHandler.seconds) {
                             scrollViewProxy?.scrollTo(currentChapter.hashValue, anchor: .center)
                         }

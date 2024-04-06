@@ -47,11 +47,11 @@ struct SeriesEpisodeSelector: View {
                 selection = viewModel.seasons.first
             }
         }
-        .onChange(of: selection) { newValue in
-            guard let newValue else { return }
+        .onChange(of: selection) {
+            guard let selection else { return }
 
-            if newValue.state == .initial {
-                newValue.send(.refresh)
+            if selection.state == .initial {
+                selection.send(.refresh)
             }
         }
     }
@@ -121,9 +121,9 @@ extension SeriesEpisodeSelector {
                     .frame(height: 20)
                 }
             }
-            .onChange(of: focusedSeason) { newValue in
-                guard let newValue else { return }
-                selection.wrappedValue = newValue
+            .onChange(of: focusedSeason) {
+                guard let focusedSeason else { return }
+                selection.wrappedValue = focusedSeason
             }
         }
     }

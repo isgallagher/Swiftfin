@@ -74,7 +74,7 @@ struct UpdateView: View {
         }
         .animation(.linear(duration: 0.1), value: proxy.systemName)
         .animation(.linear(duration: 0.1), value: proxy.iconSize)
-        .onChange(of: proxy.pushed) { _ in
+        .onChange(of: proxy.pushed) {
 
             if !isPresenting {
                 withAnimation {

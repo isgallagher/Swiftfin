@@ -103,19 +103,18 @@ extension VideoPlayer {
                     .allowsHitTesting(false)
             }
             .animation(.linear(duration: 0.1), value: isScrubbing)
-            .onChange(of: isPresentingOverlay) { newValue in
-                guard newValue, !isScrubbing else { return }
+            .onChange(of: isPresentingOverlay) {
+                guard isPresentingOverlay, !isScrubbing else { return }
                 overlayTimer.start(5)
             }
-            .onChange(of: isScrubbing) { newValue in
-                if newValue {
-                    overlayTimer.stop()
-                } else {
-                    overlayTimer.start(5)
-                }
+            .onChange(of: isScrubbing) { if isScrubbing {
+                overlayTimer.stop()
+            } else {
+                overlayTimer.start(5)
             }
-            .onChange(of: overlayTimer.isActive) { newValue in
-                guard !newValue, !isScrubbing else { return }
+            }
+            .onChange(of: overlayTimer.isActive) {
+                guard !overlayTimer.isActive, !isScrubbing else { return }
 
                 withAnimation(.linear(duration: 0.3)) {
                     isPresentingOverlay = false

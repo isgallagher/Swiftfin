@@ -66,8 +66,8 @@ struct PosterButton<Item: Poster>: View {
             .ifLet(onFocusChanged) { view, onFocusChanged in
                 view
                     .focused($isFocused)
-                    .onChange(of: isFocused) { newValue in
-                        onFocusChanged(newValue)
+                    .onChange(of: isFocused) {
+                        onFocusChanged(isFocused)
                     }
             }
 

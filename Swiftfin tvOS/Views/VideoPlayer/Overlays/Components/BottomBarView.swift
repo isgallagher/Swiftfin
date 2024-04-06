@@ -102,8 +102,8 @@ extension VideoPlayer.Overlay {
                         .foregroundColor(.white)
                 }
             }
-            .onChange(of: isPresentingOverlay) { newValue in
-                guard newValue else { return }
+            .onChange(of: isPresentingOverlay) {
+                guard isPresentingOverlay else { return }
             }
         }
     }

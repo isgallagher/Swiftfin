@@ -160,9 +160,9 @@ extension VideoPlayer {
                     endPoint: .bottom
                 )
             }
-            .onChange(of: focusedSection) { newValue in
-                guard let newValue else { return }
-                lastFocusedSection = newValue
+            .onChange(of: focusedSection) {
+                guard let focusedSection else { return }
+                lastFocusedSection = focusedSection
             }
         }
 

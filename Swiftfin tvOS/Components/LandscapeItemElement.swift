@@ -115,9 +115,9 @@ struct LandscapeItemElement: View {
                     .frame(width: 445)
             }
         }
-        .onChange(of: envFocused) { envFocus in
+        .onChange(of: envFocused) {
             withAnimation(.linear(duration: 0.15)) {
-                self.focused = envFocus
+                self.focused = envFocused
             }
         }
         .scaleEffect(focused ? 1.1 : 1)
